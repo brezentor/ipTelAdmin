@@ -24,7 +24,7 @@ switch ($q){
 1 {C:\scripts\git\ipTelAdmin\sysdir\1add\add.ps1}
 2 {"2"}
 3 {"3"}
-4 {"4"}
+4 {C:\scripts\git\ipTelAdmin\sysdir\4monitor\monitor.ps1}
 5 {"5"}
 6 {"6"}
 }
