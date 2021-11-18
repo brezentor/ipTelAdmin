@@ -21,7 +21,7 @@ echo "`n
 do {$q = Read-Host "Виберіть номер операції.."}
 while (($q -lt 1) -or ($q -gt 6))
 switch ($q){
-1 {"1"}
+1 {C:\scripts\git\ipTelAdmin\sysdir\1add\add.ps1}
 2 {"2"}
 3 {"3"}
 4 {"4"}
