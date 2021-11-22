@@ -25,6 +25,6 @@ switch ($q){
 2 {"2"}
 3 {"3"}
 4 {C:\scripts\git\ipTelAdmin\sysdir\4monitor\monitor.ps1}
-5 {"5"}
+5 {C:\scripts\git\ipTelAdmin\sysdir\4monitor\info.ps1}
 6 {"6"}
 }
