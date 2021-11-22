@@ -60,9 +60,3 @@ Add-Content -Path "C:\scripts\ipTelAdmin\logdir\MonitorLogs\$nameformat.log" -Va
 $result = Get-Content -Path "C:\scripts\ipTelAdmin\logdir\MonitorLogs\$nameformat.log"
 echo $result
 
-do {$ex = Read-Host "Натисніть 1, щоб вийти з програми або 2, щоб повернутись до головного меню.."}
-while (($ex -lt 1) -or ($ex -gt 2))
-switch ($ex){
-1 {exit}
-2 {Invoke-Command -Filepath С:\scripts\git\ipTelAdmin\main.ps1}
-}
