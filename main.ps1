@@ -21,10 +21,10 @@ echo "`n
 do {$q = Read-Host "Виберіть номер операції.."}
 while (($q -lt 1) -or ($q -gt 6))
 switch ($q){
-1 {C:\scripts\git\ipTelAdmin\sysdir\1add\add.ps1}
+1 {Invoke-Command -Filepath C:\scripts\git\ipTelAdmin\sysdir\1add\add.ps1}
 2 {"2"}
 3 {"3"}
-4 {C:\scripts\git\ipTelAdmin\sysdir\4monitor\monitor.ps1}
-5 {C:\scripts\git\ipTelAdmin\sysdir\4monitor\info.ps1}
+4 {Invoke-Command -Filepath C:\scripts\git\ipTelAdmin\sysdir\4monitor\monitor.ps1}
+5 {Invoke-Command -Filepath C:\scripts\git\ipTelAdmin\sysdir\4monitor\info.ps1}
 6 {"6"}
 }

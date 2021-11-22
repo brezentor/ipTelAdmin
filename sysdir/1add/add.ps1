@@ -112,5 +112,5 @@ do {$ex = Read-Host "Натисніть 1, щоб вийти з програми
 while (($ex -lt 1) -or ($ex -gt 2))
 switch ($ex){
 1 {exit}
-2 {С:\scripts\git\ipTelAdmin\main.ps1}
+2 {Invoke-Command -Filepath С:\scripts\git\ipTelAdmin\main.ps1}
 }
