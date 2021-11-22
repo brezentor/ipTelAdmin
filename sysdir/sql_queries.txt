@@ -1,0 +1,55 @@
+USE [IpTele] 
+GO
+
+CREATE TABLE [dbo].[IpTelephony](
+	[MacAddress] [char](12) NOT NULL,
+	[IpAddress] [varchar](20) NOT NULL,
+	[PhoneName] [varchar](40) NOT NULL,
+	[PhoneNumber] [char](4) NULL,
+	[InvNumber] [varchar](10) NOT NULL,
+	[Location] [varchar] (30) NULL,
+	[RegistrationDate] [datetime] NOT NULL
+)
+
+GO
+
+
+ALTER TABLE [dbo].[IpTelephony]
+ADD CONSTRAINT [DF_IpTelephony_RegistrationDate] DEFAULT (getdate()) FOR [RegistrationDate]
+GO
+
+ALTER TABLE [dbo].[IpTelephony]
+ADD CONSTRAINT [DF_IpTelephony_MacAddress_Unique] UNIQUE (MacAddress)
+GO
+
+ALTER TABLE [dbo].[IpTelephony]
+ADD CONSTRAINT [DF_IpTelephony_InvNumber_Unique] UNIQUE (InvNumber)
+GO
+
+ALTER TABLE [dbo].[IpTelephony]
+ADD CONSTRAINT [DF_IpTelephony_IpAddress_Unique] UNIQUE (IpAddress)
+GO
+
+ALTER TABLE [dbo].[IpTelephony]
+Add Id int IDENTITY(1,1)
+GO
+
+--------------------------
+
+INSERT INTO [dbo].[IpTelephony] ([MacAddress], [IpAddress], [PhoneName], [InvNumber], [PhoneNumber], [Location]) VALUES
+('e05fb98214da', '10.30.0.195', 'Cisco SPA502g', 'TELE49', '524', 'RD')
+GO
+
+DELETE FROM [dbo].[IpTelephony] WHERE [IpAddress] = '10.30.0.195'
+GO
+
+SELECT * FROM [dbo].[IpTelephony] 
+GO
+
+TRUNCATE TABLE [dbo].[IpTelephony]
+
+select * from dbo.iptelephony where location=''
+
+update dbo.IpTelephony set location='Hutorova' where phonenumber='723'
+
+update users set name='Soloviova', outboundcid='<Soloviova>"267"' where extension='267';
