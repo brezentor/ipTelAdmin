@@ -32,7 +32,8 @@ elif (mainq == "2"):
 elif (mainq == "3"):
     print("3")
 elif (mainq == "4"):
-    print("C:\scripts\ipTelAdmin\sysdir\4monitor\monitor.ps1")
+    work4 = subprocess.Popen(["python", "D:\\scripts\\git\\ipTelAdmin\\sysdir\\4monitor\\monitor.py"])
+    work4.communicate()
 elif (mainq == "5"):
     work5 = subprocess.Popen(["python", "D:\\scripts\\git\\ipTelAdmin\\sysdir\\5info\\info.py"])
     work5.communicate()

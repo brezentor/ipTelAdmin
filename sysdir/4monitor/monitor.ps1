@@ -60,3 +60,6 @@ Add-Content -Path "C:\scripts\ipTelAdmin\logdir\MonitorLogs\$nameformat.log" -Va
 $result = Get-Content -Path "C:\scripts\ipTelAdmin\logdir\MonitorLogs\$nameformat.log"
 echo $result
 
+#=8=======================\конец\======================
+
+python "C:\scripts\ipTelAdmin\sysdir\4monitor\monend.py"
