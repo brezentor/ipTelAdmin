@@ -58,7 +58,6 @@ Add-Content -Path "C:\scripts\ipTelAdmin\logdir\MonitorLogs\$nameformat.log" -Va
 Add-Content -Path "C:\scripts\ipTelAdmin\logdir\MonitorLogs\$nameformat.log" -Value $infof
 }
 $result = Get-Content -Path "C:\scripts\ipTelAdmin\logdir\MonitorLogs\$nameformat.log"
-echo $result
 
 #=8=======================\конец\======================
 

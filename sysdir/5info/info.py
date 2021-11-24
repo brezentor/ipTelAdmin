@@ -76,9 +76,9 @@ while True:
           break
 print(endinfo)
 if (endinfo == "1"):
-	  exit()
+      exit()
 elif (endinfo == "2"):
-	  gotomain = subprocess.Popen(["python", "D:\\scripts\\git\\ipTelAdmin\\main.py"])
-	  gotomain.communicate()
+      gotomain = subprocess.Popen(["python", "D:\\scripts\\git\\ipTelAdmin\\main.py"])
+      gotomain.communicate()
 else:
-	  print("else")
+      print("else")
