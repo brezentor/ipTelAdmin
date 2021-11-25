@@ -8,7 +8,7 @@ def execresult(result):
           inforesult = result[0]
       except:
           print("\n\n\t||============================================||"
-                "\n\t||  НЕ ЗНАЙДЕНО ІНФО В БД ІЗ ТАКИМИ ДАНИМИ "
+                "\n\t||  НЕ ЗНАЙДЕНО IНФО В БД IЗ ТАКИМИ ДАНИМИ "
                 "\n\t||============================================||"
                 "\n")
       else:
@@ -78,7 +78,7 @@ print(endinfo)
 if (endinfo == "1"):
       exit()
 elif (endinfo == "2"):
-      gotomain = subprocess.Popen(["python", "D:\\scripts\\git\\ipTelAdmin\\main.py"])
+      gotomain = subprocess.Popen(["python", "C:\\scripts\\ipTelAdmin\\main.py"])
       gotomain.communicate()
 else:
       print("else")
