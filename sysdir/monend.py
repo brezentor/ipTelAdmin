@@ -1,5 +1,5 @@
 import subprocess
-
+import iptelmethods
 
 """def sqlpurge():
     for 
@@ -28,15 +28,4 @@ result = "\n\t||============================================||" \
          "\n\t||============================================||".format(rez = rsize, onl = tsize, ofl = fsize)
 print(result)
 
-while True:
-      endinfo = input("Виберiть номер та натиснiть ENTER:\n1) Вийти iз програми\n2) Повернутись до головного меню..")
-      if (int(endinfo) >= 1) and (int(endinfo) <= 2):
-          break
-print(endinfo)
-if (endinfo == "1"):
-    exit()
-elif (endinfo == "2"):
-    gotomain = subprocess.Popen(["python", "C:\\scripts\\ipTelAdmin\\main.py"])
-    gotomain.communicate()
-else:
-    print("else")
+iptelmethods.endofpage()

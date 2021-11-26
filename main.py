@@ -24,9 +24,9 @@ while True:
     mainq = input("Введiть номер операцiї та натиснiть ENTER..")
     if (int(mainq) >= 1) and (int(mainq) <= 6):
         break
-print(mainq)
 if (mainq == "1"):
-    print("C:\\scripts\\ipTelAdmin\\sysdir\\1add\\add.ps1")
+    work1 = subprocess.Popen(["python", "C:\\scripts\\ipTelAdmin\\sysdir\\add.py"])
+    work1.communicate()
 elif (mainq == "2"):
     print("2")
 elif (mainq == "3"):

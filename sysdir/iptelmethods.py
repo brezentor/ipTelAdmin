@@ -1,13 +1,13 @@
 import subprocess
 import pyodbc
+import paramiko
 
-
+# for redirecting on a main.py
 def endofpage():
     while True:
         endinfo = input("Виберiть номер та натиснiть ENTER:\n1) Вийти iз програми\n2) Повернутись до головного меню..")
         if (int(endinfo) >= 1) and (int(endinfo) <= 2):
             break
-    print(endinfo)
     if (endinfo == "1"):
         exit()
     elif (endinfo == "2"):
@@ -16,7 +16,7 @@ def endofpage():
     else:
         print("else")
 
-
+# for def sqlconn(querry)
 def execresult(result):
     try:
         inforesult = result[0]
@@ -37,7 +37,7 @@ def execresult(result):
               "\n\t||============================================||"
               "\n")
 
-
+# for info.py
 def sqlconn(query):
     connect = pyodbc.connect('DRIVER={SQL Server}; SERVER=10.0.0.9; PORT=1433; DATABASE=IpTele; UID=sa; PWD=123456;')
     cursor = connect.cursor()
@@ -45,3 +45,22 @@ def sqlconn(query):
     result = cursor.fetchall()
     connect.close()
     execresult(result)
+
+# for spq922,962,502g,8000.py
+def telconfadd(command_koza):
+    host = "10.30.0.6"
+    port = 22
+    username = "iptel"
+    password = "48qtnRXt"
+    u = open('C:\\scripts\\ipTelAdmin\\logdir\\iptel.tmp')
+    mac = u.readline()
+    u.close()
+    maccommand = mac + ".xml"
+    command = command_koza.format(p=maccommand)
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh.connect(host, port, username, password)
+    stdin, stdout, stderr = ssh.exec_command(command)
+    """data = stdout.read() + stderr.read()"""
+    ssh.close()
+
