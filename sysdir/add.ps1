@@ -19,7 +19,7 @@ $oldip = $oldip.Trim()
 
 Remove-DhcpServerv4Lease -ComputerName "ad1.krayina.local" -ScopeId "10.30.0.0" -ClientId $m
 
-$mactel | Add-DhcpServerv4Reservation -ComputerName "ad1.krayina.local" -ScopeId "10.30.0.0" -IPAddress $free
+Add-DhcpServerv4Reservation -ComputerName "ad1.krayina.local" -ScopeId "10.30.0.0" -IPAddress $free -ClientId $m
 
 
 

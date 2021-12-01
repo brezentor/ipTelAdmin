@@ -10,7 +10,7 @@ data = json.load(ar)
 
 ipinf = "C:\\scripts\\ipTelAdmin\\logdir\\free.log"
 iw = open(ipinf, mode = "r")
-ipinfo = iw.readline()
+ipinfo = iw.readline().rstrip("\n")
 
 oldip = "C:\\scripts\\ipTelAdmin\\logdir\\oldip.log"
 oi = open(oldip, mode = "r")
@@ -29,7 +29,7 @@ cursor = conn.cursor()
 query = ("""
             INSERT INTO [dbo].[IpTelephony] ([MacAddress], [IpAddress], [PhoneName], [InvNumber], [PhoneNumber], [Location]) 
             VALUES ('{m}', '{i}', '{mod}', '{inv}', '{n}', '{l}')
-            """).format(m = str(macn), i = str(ipinfo), mod = str(model), inv = str(invn), n = str(num), l = str(loc))
+            """).format(m = str(macn).upper(), i = str(ipinfo), mod = str(model), inv = str(invn), n = str(num), l = str(loc))
 cursor.execute(query)
 conn.commit()
 conn.close()
@@ -38,7 +38,7 @@ print("\n"
       "\n\t||============================================||"
       "\n\t||  В СИСТЕМУ ЗАВЕДЕНО ПРИСТРIЙ {modell} "
       "\n\t||  ЙОГО ДАНI:"
-      "\n\t||  ФIЗИЧНА АДРЕСА {macad}            "
+      "\n\t||  ФIЗИЧНА АДРЕСА - {macad}            "
       "\n\t||  IНВЕНТАРНИЙ НОМЕР - {inv}           "
       "\n\t||  IP-АДРЕСА - {ipad}         "
       "\n\t||  ЛОКАЦIЯ - ГОЛОВНИЙ ОФIС"

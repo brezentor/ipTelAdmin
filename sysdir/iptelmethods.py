@@ -5,7 +5,8 @@ import paramiko
 # for redirecting on a main.py
 def endofpage():
     while True:
-        endinfo = input("Виберiть номер та натиснiть ENTER:\n1) Вийти iз програми\n2) Повернутись до головного меню..")
+        endinfo = input("\n||============================================"
+                        "\n\nВиберiть номер та натиснiть ENTER:\n1) Вийти iз програми\n2) Повернутись до головного меню..")
         if (int(endinfo) >= 1) and (int(endinfo) <= 2):
             break
     if (endinfo == "1"):
@@ -16,13 +17,19 @@ def endofpage():
     else:
         print("else")
 
-# for def sqlconn(querry)
-def execresult(result):
+
+# for info.py
+def sqlconninfo(query):
+    connect = pyodbc.connect('DRIVER={SQL Server}; SERVER=10.0.0.9; PORT=1433; DATABASE=IpTele; UID=sa; PWD=123456;')
+    cursor = connect.cursor()
+    cursor.execute(query)
+    result = cursor.fetchall()
+    connect.close()
     try:
         inforesult = result[0]
     except:
         print("\n\n\t||============================================||"
-              "\n\t||  НЕ ЗНАЙДЕНО IНФО В БД IЗ ТАКИМИ ДАНИМИ "
+              "\n\t||  НЕ ЗНАЙДЕНО IНФО В БД IЗ ТАКИМИ ДАНИМИ    ||"
               "\n\t||============================================||"
               "\n")
     else:
@@ -36,15 +43,6 @@ def execresult(result):
               "\n\t||  ЛОКАЦIЯ - " + str(infores[5]).strip("'") + " "
               "\n\t||============================================||"
               "\n")
-
-# for info.py
-def sqlconn(query):
-    connect = pyodbc.connect('DRIVER={SQL Server}; SERVER=10.0.0.9; PORT=1433; DATABASE=IpTele; UID=sa; PWD=123456;')
-    cursor = connect.cursor()
-    cursor.execute(query)
-    result = cursor.fetchall()
-    connect.close()
-    execresult(result)
 
 # for spq922,962,502g,8000.py
 def telconfadd(command_koza):
@@ -64,3 +62,16 @@ def telconfadd(command_koza):
     """data = stdout.read() + stderr.read()"""
     ssh.close()
 
+# for number.py
+def telconfedit(command_koza):
+    host = "10.30.0.6"
+    port = 22
+    username = "iptel"
+    password = "48qtnRXt"
+    command = command_koza
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh.connect(host, port, username, password)
+    stdin, stdout, stderr = ssh.exec_command(command)
+    """data = stdout.read() + stderr.read()"""
+    ssh.close()
