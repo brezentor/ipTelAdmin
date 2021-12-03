@@ -3,16 +3,20 @@ import pyodbc
 import re
 import subprocess
 import iptelmethods
+import os
 
 print("\n\n\t||============================================||"
+      "\n\t||                                            ||"
       "\n\t||  ЩОБ ОТРИМАТИ IНФО ПРО ПРИСТРIЙ            ||"
       "\n\t||  ВВЕДIТЬ НОМЕР ТЕЛЕФОНУ, IР АДРЕСУ,        ||"
       "\n\t||  МАС АДРЕСУ АБО IНВЕНТРАНИЙ НОМЕР          ||"
+      "\n\t||                                            ||"
       "\n\t||============================================||"
       "\n")
 error = True
 while (error == True):
-      quer = input("Введiть данi для пошуку та натиснiть ENTER..")
+      quer = input("\n||====================================================||"
+                   "\n\nВведiть данi для пошуку та натиснiть ENTER..")
       numbq = r'\d{3}'
       macq = r'[\d\w]{12}'
       ipq = r'10.30.\d{1}.\d{1,3}'
@@ -35,12 +39,14 @@ while (error == True):
                   iptelmethods.sqlconninfo(query)
                   error = False
             else:
-                  print("Ви невiрно ввели МАС-адресу. Потрiбно 12 символiв, а Ви ввели {maclen}".format(
+                  print("\n||====================================================||"
+                        "\n\nВи невiрно ввели МАС-адресу. Потрiбно 12 символiв, а Ви ввели {maclen}".format(
                         maclen=len(quer)))
                   error = True
       elif ((resm == None) and (resinv != None)):
             if ((len(quer) < 5) or (len(quer) > 8)):
-                  print("Ви невiрно ввели iнвентарний номер. Потрiбно не бiльше 8 символiв, а Ви ввели {invlen}".format(
+                  print("\n||====================================================||"
+                        "\n\nВи невiрно ввели iнвентарний номер. Потрiбно не бiльше 8 символiв, а Ви ввели {invlen}".format(
                         invlen=len(quer)))
                   error = True
             else:
@@ -55,7 +61,8 @@ while (error == True):
                   iptelmethods.sqlconninfo(query)
                   error = False
             else:
-                  print("Ви невiрно ввели SIP номер. Потрiбно 3 символи, а Ви ввели {maclen}".format(
+                  print("\n||====================================================||"
+                        "\n\nВи невiрно ввели SIP номер. Потрiбно 3 символи, а Ви ввели {maclen}".format(
                         maclen=len(quer)))
                   error = True
       elif (resip != None):
@@ -64,7 +71,15 @@ while (error == True):
             iptelmethods.sqlconninfo(query)
             error = False
       else:
-            print("Ви невiрно ввели ip адресу. Використовуйте ip адреси iз пулу 10.30.0.0")
+            print("\n||====================================================||"
+                  "\n\nВи невiрно ввели ip адресу. Використовуйте ip адреси iз пулу 10.30.0.0")
             error = True
-
+print("\n\t||==============| ПОДАЛЬШI ДIЇ |==============||"
+      "\n\t||============================================||"
+      "\n\t||                                            ||"
+      "\n\t||  (1) ПОВЕРНУТИСЬ В ГОЛОВНЕ МЕНЮ            ||"
+      "\n\t||--------------------------------------------||"
+      "\n\t||  (2) ВИЙТИ IЗ ПРОГРАМИ                     ||"
+      "\n\t||                                            ||"
+      "\n\t||============================================||")
 iptelmethods.endofpage()
