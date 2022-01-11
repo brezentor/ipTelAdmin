@@ -20,7 +20,7 @@ def endofpage():
 
 # for info.py
 def sqlconninfo(query):
-    connect = pyodbc.connect('DRIVER={SQL Server}; SERVER=10.0.0.9; PORT=1433; DATABASE=IpTele; UID=sa; PWD=123456;')
+    connect = pyodbc.connect('DRIVER={SQL Server}; SERVER=90.0.0.1; PORT=1433; DATABASE=db; UID=usr; PWD=pwd;')
     cursor = connect.cursor()
     cursor.execute(query)
     result = cursor.fetchall()
@@ -62,10 +62,10 @@ def sqlconninfo(query):
 
 # for spq922,962,502g,8000.py
 def telconfadd(command_koza):
-    host = "10.30.0.6"
+    host = "20.40.0.4"
     port = 22
-    username = "iptel"
-    password = "48qtnRXt"
+    username = "usr"
+    password = "pwd"
     u = open('C:\\scripts\\ipTelAdmin\\logdir\\iptel.tmp')
     mac = u.readline()
     u.close()
@@ -80,10 +80,10 @@ def telconfadd(command_koza):
 
 # for number.py
 def telconfedit(command_koza):
-    host = "10.30.0.6"
+    host = "20.40.0.4"
     port = 22
-    username = "iptel"
-    password = "48qtnRXt"
+    username = "usr"
+    password = "pwd"
     command = command_koza
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -130,7 +130,7 @@ class action():
     def actualize(self):
         ipdelpath = "C:\\scripts\\ipTelAdmin\\logdir\\dlfls.tmp"
         ip4del = open(ipdelpath, mode = "a")
-        connect = pyodbc.connect('DRIVER={SQL Server}; SERVER=10.0.0.9; PORT=1433; DATABASE=IpTele; UID=sa; PWD=123456;')
+        connect = pyodbc.connect('DRIVER={SQL Server}; SERVER=90.0.0.1; PORT=1433; DATABASE=db; UID=usr; PWD=pwd;')
         for i in range(0, int(self.fsize)):
             delip = self.finfo[i].rstrip(" ").rstrip("\n")
             if (i == (int(self.fsize)-1)):
