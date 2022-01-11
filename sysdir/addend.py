@@ -24,7 +24,7 @@ invn = data[0]['InvNumber']
 num = "Nul"
 loc = "HO"
 
-conn = pyodbc.connect('DRIVER={SQL Server}; SERVER=10.0.0.9; PORT=1433; DATABASE=IpTele; UID=sa; PWD=123456;')
+conn = pyodbc.connect('DRIVER={SQL Server}; SERVER=90.0.0.1; PORT=1433; DATABASE=db; UID=user; PWD=pwd;')
 cursor = conn.cursor()
 query = ("""
             INSERT INTO [dbo].[IpTelephony] ([MacAddress], [IpAddress], [PhoneName], [InvNumber], [PhoneNumber], [Location]) 
