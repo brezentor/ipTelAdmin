@@ -21,7 +21,7 @@ print("\n\n\t||============================================||"
 
 
 try:
-      conn = pyodbc.connect('DRIVER={SQL Server}; SERVER=10.0.0.9; PORT=1433; DATABASE=IpTele; UID=sa; PWD=123456;')
+      conn = pyodbc.connect('DRIVER={SQL Server}; SERVER=90.0.0.1; PORT=1433; DATABASE=db; UID=usr; PWD=pwd;')
 
 except:
       print(sys.exc_info()[1])
