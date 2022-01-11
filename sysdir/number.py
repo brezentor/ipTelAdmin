@@ -62,7 +62,7 @@ query2 = ("SELECT [PhoneName] FROM [dbo].[IpTelephony] WHERE [IpAddress] = '{ini
          "[MacAddress] = '{inin}'".format(inin = str(inputinfo)))
 query3 = ("SELECT [IpAddress] FROM [dbo].[IpTelephony] WHERE [IpAddress] = '{inin}' OR [InvNumber] = '{inin}' OR "
          "[MacAddress] = '{inin}'".format(inin = str(inputinfo)))
-connect = pyodbc.connect('DRIVER={SQL Server}; SERVER=10.0.0.9; PORT=1433; DATABASE=IpTele; UID=sa; PWD=123456;')
+connect = pyodbc.connect('DRIVER={SQL Server}; SERVER=90.0.0.1; PORT=1433; DATABASE=db; UID=usr; PWD=pwd;')
 
 try:
       # query1
